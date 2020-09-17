@@ -3,9 +3,16 @@ require 'minitest/pride'
 require './lib/enigma'
 
 class EnigmaTest < Minitest::Test
-  def test_it_exists
-
-    assert_instance_of Enigma, self
+  def setup
+     @enigma = Enigma.new
   end
+
+  def test_it_can_generate_a_key
+
+    srand(99999)
+
+    assert_equal "19787", @enigma.generate_key
+  end
+
+  def 
 end
-a
