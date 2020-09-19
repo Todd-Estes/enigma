@@ -48,10 +48,24 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.alphabet
   end
 
-  def test_it_can_shift_letters
+  def test_it_can_shift_characters
     enigma = Enigma.new
-
     assert_equal "a", enigma.shift_characters("r", 10)
+  end
+
+  def test_it_can_shift_a_message
+    # skip
+    # this needs stubs to get working
+    enigma = Enigma.new
+    require "pry"; binding.pry
+    # enigma.stubs(:make_shifts).returns([13, 22, 76, 33])
+
+    assert_equal "", enigma.shift_message("pickles")
+  end
+
+  def test_it_can_encrypt
+    enigma = Enigma.new
+    enigma.encrypt("pickles", [1, 18, 86, 61], "190920")
   end
 
 end
