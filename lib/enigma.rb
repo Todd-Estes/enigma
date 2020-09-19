@@ -32,6 +32,8 @@ class Enigma
    ("a".."z").to_a << " "
   end
 
-  # def alphabet.get_index(char)
+  def shift_characters(character, shift)
+    self.alphabet[(self.alphabet.index(character) + shift) % 27]
+  end
 
 end

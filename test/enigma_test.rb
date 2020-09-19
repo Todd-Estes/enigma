@@ -51,7 +51,7 @@ class EnigmaTest < Minitest::Test
   def test_it_can_shift_letters
     enigma = Enigma.new
 
-    assert_equal "e", enigma.shift_characters("r", 10)
+    assert_equal "a", enigma.shift_characters("r", 10)
   end
 
 end
