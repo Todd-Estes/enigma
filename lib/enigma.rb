@@ -16,12 +16,19 @@ class Enigma
     (num.to_s).slice(-4, 4)
   end
 
-  def convert_into_keys
+  def convert_keys
     create_key.chars.each_cons(2).map do |pair|
       pair.join.to_i
     end
   end
 
+  def offsets_plus_keys(offsets, keys)
+    offsets.chars.map.with_index do |char,ind|
+      char.to_i + keys[ind]
+    end
+  end
 
-
+  def make_shifts
+    offsets_plus_keys(make_offset, convert_keys)
+  end
 end
