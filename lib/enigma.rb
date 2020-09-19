@@ -22,13 +22,14 @@ class Enigma
     end
   end
 
-  def offsets_plus_keys(offsets, keys)
-    offsets.chars.map.with_index do |char,ind|
-      char.to_i + keys[ind]
+  def make_shifts
+    make_offset.chars.map.with_index do |char,ind|
+      char.to_i + convert_keys[ind]
     end
   end
 
-  def make_shifts
-    offsets_plus_keys(make_offset, convert_keys)
+  def alphabet
+   ("a".."z").to_a << " "
   end
+
 end

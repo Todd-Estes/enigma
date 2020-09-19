@@ -32,20 +32,20 @@ class EnigmaTest < Minitest::Test
   end
 # This needs either mocks or stubs
   def test_it_converts_to_keys
-    # skip
+    skip
     enigma = Enigma.new
     create_key = 52397
     assert_equal [38, 88, 80, 0], enigma.convert_into_keys
   end
-
-  def test_it_adds_offsets_to_keys
-    enigma = Enigma.new
-    require "pry"; binding.pry
-
-  end
-
+  # This needs either mocks or stubs
   def it_makes_the_shifts
     enigma = Enigma.new
-
   end
+
+  def test_it_has_an_alphabet
+    enigma = Enigma.new
+    expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
+    assert_equal expected, enigma.alphabet
+  end
+
 end
