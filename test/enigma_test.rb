@@ -44,9 +44,14 @@ class EnigmaTest < Minitest::Test
 
   def test_it_has_an_alphabet
     enigma = Enigma.new
-    require "pry"; binding.pry
     expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
     assert_equal expected, enigma.alphabet
+  end
+
+  def test_it_can_shift_letters
+    enigma = Enigma.new
+
+    assert_equal "e", enigma.shift_characters("r", 10)
   end
 
 end
