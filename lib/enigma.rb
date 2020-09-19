@@ -32,4 +32,6 @@ class Enigma
    ("a".."z").to_a << " "
   end
 
+  # def alphabet.get_index(char)
+
 end
