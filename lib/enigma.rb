@@ -1,0 +1,84 @@
+require 'date'
+class Enigma
+  def intitialize
+  end
+
+  def get_date
+    Date.today.strftime("%d%m%y")
+  end
+
+  def create_key
+    rand(99999).to_s.rjust(5, "0")
+  end
+
+  def make_offset(date = get_date)
+    num = ((date.to_i)**2)
+    (num.to_s).slice(-4, 4)
+  end
+
+  def convert_keys(key = create_key)
+    key.chars.each_cons(2).map do |pair|
+      pair.join.to_i
+    end
+  end
+
+  def make_shifts(keys = self.create_key, date = self.get_date)
+    make_offset(date).chars.map.with_index do |char,ind|
+      char.to_i + (convert_keys(keys))[ind]
+    end
+  end
+
+  def alphabet
+   ("a".."z").to_a << " "
+  end
+
+  def shift_characters(character, shift)
+    self.alphabet[(self.alphabet.index(character) + shift) % 27]
+  end
+
+  def shift_back_characters(character, shift)
+    self.alphabet[(self.alphabet.index(character) - shift) % 27]
+  end
+
+  def shift_message(message, keys, date)
+    shift_values = make_shifts(keys, date)
+    message.chars.reduce("") do |new_string, char|
+      if !alphabet.include?(char)
+        new_string + char
+      else
+        shift_values.rotate!(1) unless new_string.empty?
+        new_string.concat(shift_characters(char, shift_values.first))
+      end
+    end
+  end
+
+  def shift_back_message(message, keys, date)
+    shift_values = make_shifts(keys, date)
+    message.chars.reduce("") do |new_string, char|
+      if !alphabet.include?(char)
+        new_string + char
+      else
+        shift_values.rotate!(1) unless new_string.empty?
+        new_string.concat(shift_back_characters(char, shift_values.first))
+      end
+    end
+  end
+
+  def encrypt(message, keys = create_key, date = get_date)
+    encrypt_hash = {}
+    encrypt_hash[:encryption] = shift_message(message, keys, date)
+    encrypt_hash[:key] = keys
+    encrypt_hash[:date] = date
+    encrypt_hash
+  end
+
+  def decrypt(message, keys = create_key, date = get_date)
+    decrypt_hash = {}
+    decrypt_hash[:decryption] = shift_back_message(message, keys, date)
+    decrypt_hash[:key] = keys
+    decrypt_hash[:date] = date
+    decrypt_hash
+  end
+
+
+end
