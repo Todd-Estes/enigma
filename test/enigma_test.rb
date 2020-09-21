@@ -1,6 +1,7 @@
 require './test/test_helper.rb'
 require './lib/enigma'
 require 'date'
+require'mocha/minitest'
 
 class EnigmaTest < Minitest::Test
   def setup
@@ -13,10 +14,9 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_finds_the_date
-    skip
-    # This needs either mocks or stubs
-    Date.stubs(:today).returns(Date.new(2020,9,20))
-    assert_equal "190920", @enigma.get_date
+    # skip
+    Date.stubs(:today).returns(Date.new(2020,8,20))
+    assert_equal "200820", @enigma.get_date
   end
 
   def test_it_generates_a_five_digit_number
@@ -25,9 +25,9 @@ class EnigmaTest < Minitest::Test
   end
   # This needs either mocks or stubs
   def test_it_makes_an_offset
-    skip
-
-    assert_equal "8400", @enigma.make_offset("")
+    # skip
+    Date.stubs(:today).returns(Date.new(2020,9,20))
+    assert_equal "6400", @enigma.make_offset("200920")
   end
 
   def test_it_converts_to_keys
