@@ -40,4 +40,16 @@ class ShiftMaker
       end
     end
   end
+
+  def shift_back_message(message, keys, date)
+    shift_values = make_shifts(keys, date)
+    message.chars.reduce("") do |new_string, char|
+      if !alphabet.include?(char)
+        new_string + char
+      else
+        shift_values.rotate!(1) unless new_string.empty?
+        new_string.concat(shift_back_characters(char, shift_values.first))
+      end
+    end
+  end
 end
