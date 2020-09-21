@@ -11,7 +11,7 @@ class ShiftMakerTest < Minitest::Test
 
   def test_it_has_an_alphabet
     expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
-    assert_equal expected, @enigma.alphabet
+    assert_equal expected, @shift_maker.alphabet
   end
 
   def test_it_exists
@@ -36,6 +36,12 @@ class ShiftMakerTest < Minitest::Test
   def test_it_can_shift_characters
     assert_equal "a", @shift_maker.shift_characters("r", 10)
   end
+
+  def test_it_can_shift_back_characters
+    assert_equal "h", @enigma.shift_back_characters("r", 10)
+  end
+
+
 
 
 
