@@ -17,11 +17,15 @@ class ShiftMaker
     end
   end
 
-  # def alphabet
-  #  ("a".."z").to_a << " "
-  # end
+  def alphabet
+   ("a".."z").to_a << " "
+  end
 
   def shift_characters(character, shift)
     self.alphabet[(self.alphabet.index(character) + shift) % 27]
+  end
+
+  def shift_back_characters(character, shift)
+    self.alphabet[(self.alphabet.index(character) - shift) % 27]
   end
 end
