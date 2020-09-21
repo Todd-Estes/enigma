@@ -46,7 +46,8 @@ class ShiftMakerTest < Minitest::Test
     assert_equal "jfizfby", @shift_maker.shift_message("pickles", "42069", "190920")
   end
 
-
-
-
+  def test_it_can_unshift_a_message
+    # skip
+    assert_equal "pickles", @enigma.shift_back_message("jfizfby", "42069", "190920")
+  end
 end
