@@ -38,9 +38,13 @@ class ShiftMakerTest < Minitest::Test
   end
 
   def test_it_can_shift_back_characters
-    assert_equal "h", @enigma.shift_back_characters("r", 10)
+    assert_equal "h", @shift_maker.shift_back_characters("r", 10)
   end
 
+  def test_it_can_shift_a_message
+    # skip
+    assert_equal "jfizfby", @shift_maker.shift_message("pickles", "42069", "190920")
+  end
 
 
 
