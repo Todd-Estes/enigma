@@ -20,8 +20,16 @@ class ShiftMakerTest < Minitest::Test
 
   def test_it_converts_to_keys
     # skip
-    assert_equal [38, 88, 88, 89], @enigma.convert_keys("38889")
+    assert_equal [38, 88, 88, 89], @shift_maker.convert_keys("38889")
   end
+
+  def test_it_will_make_shifts
+    # skip
+  assert_equal [86, 33, 94, 45], @shift_maker.make_shifts("82945", "103120")
+  end
+
+
+
 
 
 end
