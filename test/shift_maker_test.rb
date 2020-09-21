@@ -17,4 +17,11 @@ class ShiftMakerTest < Minitest::Test
     # skip
     assert_equal "6400", @shift_maker.make_offset("200920")
   end
+
+  def test_it_converts_to_keys
+    # skip
+    assert_equal [38, 88, 88, 89], @enigma.convert_keys("38889")
+  end
+
+
 end
