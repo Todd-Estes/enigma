@@ -13,5 +13,8 @@ class ShiftMakerTest < Minitest::Test
     assert_instance_of ShiftMaker, @shift_maker
   end
 
-  def test_
+  def test_it_makes_an_offset
+    # skip
+    assert_equal "6400", @shift_maker.make_offset("200920")
+  end
 end
