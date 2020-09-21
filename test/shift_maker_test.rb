@@ -28,7 +28,9 @@ class ShiftMakerTest < Minitest::Test
   assert_equal [86, 33, 94, 45], @shift_maker.make_shifts("82945", "103120")
   end
 
-
+  def test_it_can_shift_characters
+    assert_equal "a", @enigma.shift_characters("r", 10)
+  end
 
 
 
