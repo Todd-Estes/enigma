@@ -31,7 +31,7 @@ class ShiftMaker
 
   def self.shift_message(message, keys, date)
     shift_values = self.make_shifts(keys, date)
-    message.chars.reduce("") do |new_string, char|
+    message.downcase.chars.reduce("") do |new_string, char|
       if !alphabet.include?(char)
         new_string + char
       else
