@@ -1,5 +1,4 @@
 require_relative './enigma'
-require_relative './shift_maker'
 
 enigma = Enigma.new
 
