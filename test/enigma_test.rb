@@ -23,8 +23,8 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_encrypt
     # skip
-Date.stubs(:today).returns(Date.new(2020,9,20))
- expected = {
+    Date.stubs(:today).returns(Date.new(2020,9,20))
+    expected = {
               :encryption => "lsyvhon",
               :key => "98765",
               :date => "200920"

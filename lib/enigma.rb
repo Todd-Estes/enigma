@@ -1,7 +1,6 @@
 require 'date'
 require_relative './shift_maker'
 
-# require './lib/shift_maker'
 class Enigma
   def intitialize
   end
