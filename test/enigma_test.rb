@@ -25,11 +25,12 @@ class EnigmaTest < Minitest::Test
     # skip
 Date.stubs(:today).returns(Date.new(2020,9,20))
  expected = {
-              :encryption => "jfizfby",
-              :key => "42069",
+              :encryption => "lsyvhon",
+              :key => "98765",
               :date => "200920"
                 }
-    assert_equal expected, @enigma.encrypt("pickles", "42069")
+
+    assert_equal expected, @enigma.encrypt("pickles", "98765")
   end
 
   def test_it_can_decrypt
@@ -37,9 +38,9 @@ Date.stubs(:today).returns(Date.new(2020,9,20))
     Date.stubs(:today).returns(Date.new(2020,9,20))
     expected = {
               :decryption => "pickles",
-              :key => "42069",
+              :key => "98765",
               :date => "200920"
                 }
-    assert_equal expected, @enigma.decrypt("jfizfby", "42069")
+    assert_equal expected, @enigma.decrypt("lsyvhon", "98765")
   end
 end

@@ -32,7 +32,7 @@ class ShiftMakerTest < Minitest::Test
 
   def test_it_will_make_shifts
     # skip
-  assert_equal [86, 33, 94, 45], ShiftMaker.make_shifts("82945", "103120")
+    assert_equal [86, 33, 94, 45], ShiftMaker.make_shifts("82945", "103120")
   end
 
   def test_it_can_shift_characters
@@ -48,10 +48,12 @@ class ShiftMakerTest < Minitest::Test
   def test_it_can_shift_a_message
     # skip
     assert_equal "jfizfby", ShiftMaker.shift_message("pickles", "42069", "190920")
+    assert_equal "!!gxlu_f^^eeyozr", ShiftMaker.shift_message("!!alan_ ^^turing", "82938", "190920")
   end
 
   def test_it_can_unshift_a_message
     # skip
     assert_equal "pickles", ShiftMaker.shift_back_message("jfizfby", "42069", "190920")
+    assert_equal "!!alan_ ^^turing", ShiftMaker.shift_back_message("!!gxlu_f^^eeyozr", "82938", "190920")
   end
 end
